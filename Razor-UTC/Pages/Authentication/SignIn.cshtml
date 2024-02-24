@@ -1,0 +1,31 @@
+﻿@page
+@model Razor_UTC.Authentication.AuthenticationModel
+@{
+}
+
+<form method="post">
+    <div class="container border">
+        <div class="form-group row m-2">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="col-2">
+                <label asp-for="Credentials.Username"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="Credentials.Username" class="form-control"/>
+                <span class="text-danger" asp-validation-for="Credentials.Username"></span>
+            </div>
+        </div>
+        <div class="form-group row m-2">
+            <div class="col-2">
+                <label asp-for="Credentials.Password"></label>
+            </div>
+            <div class="col-5">
+                <input type="password" asp-for="Credentials.Password" class="form-control"/>
+                <span class="text-danger" asp-validation-for="Credentials.Password"></span>
+            </div>
+        </div>
+        <div class="form-group m-3">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </div>
+</form>

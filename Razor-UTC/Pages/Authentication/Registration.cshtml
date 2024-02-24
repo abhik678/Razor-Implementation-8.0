@@ -1,0 +1,24 @@
+﻿@page
+@model Razor_UTC.Pages.Authentication.RegistrationModel
+@{
+}
+
+<form method="post">
+    <div class="container">
+        <div class="from-group">
+            <label asp-for="Registration.Username"></label>
+            <input type="text" asp-for="Registration.Username" class="form-control" />
+        </div>
+        <div class="from-group">
+            <label asp-for="Registration.Password"></label>
+            <input type="password" asp-for="Registration.Password" class="form-control" />
+        </div>
+        <div class="from-group">
+            <label asp-for="Registration.ConfirmPassword"></label>
+            <input type="password" asp-for="Registration.ConfirmPassword" class="form-control" />
+        </div>
+        <div class="form-group mt-3">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </div>
+</form>
