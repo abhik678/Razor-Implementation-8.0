@@ -15,11 +15,14 @@ namespace Razor_UTC
             services.AddRazorPages();
             services.AddAuthentication(Constants.cookies).AddCookie(Constants.cookies, options =>
             {
-                options.Cookie.Name =   Constants.cookies;
+                options.Cookie.Name = Constants.cookies;
             });
-            services.AddAuthorizationBuilder()
-                .AddPolicy("Enrolled", option => { option.RequireClaim("Authorized", "User"); })
-                .AddPolicy("UnEnrolled", option => { option.RequireClaim("Guest", "User"); });
+
+            IServiceCollection res = services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Authorized", option => { option.RequireClaim("Admin", "User"); });
+                options.AddPolicy("UnAuthorized", option => { option.RequireClaim("Guest", "User"); });
+            });
             services.AddDbContext<UserDbContext>();
 
             string path = Configuration.GetSection("Logging:LogPath:logPath").Value!;

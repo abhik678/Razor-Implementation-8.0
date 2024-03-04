@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Razor_UTC.Models;
 
 namespace Razor_UTC.DBContext
@@ -17,8 +18,19 @@ namespace Razor_UTC.DBContext
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserInformation>().HasKey(x=>x.Id);
-            modelBuilder.Entity<Registration>().HasKey(x=>x.Username);
+            modelBuilder.Entity<UserInformation>().HasKey(x => x.Id);
+            modelBuilder.Entity<Registration>().HasKey(x => x.Username);
+        }
+
+        public static void SaveChanges(ChangeTracker changeTracker, UserDbContext Context)
+        {
+            foreach (EntityEntry entity in changeTracker.Entries())
+            {
+                if(entity.State == EntityState.Added || entity.State == EntityState.Modified)
+                {
+                    Context.SaveChanges();
+                }
+            }
         }
     }
 }
