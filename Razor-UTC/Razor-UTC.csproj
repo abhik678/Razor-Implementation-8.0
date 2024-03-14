@@ -19,4 +19,20 @@
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.1-dev-00972" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\tech-1.jpg" />
+    <None Include="wwwroot\Images\tech-2.jpg" />
+    <None Include="wwwroot\Images\tech-3.jpg" />
+    <None Include="wwwroot\Images\tech-4.jpg" />
+    <None Include="wwwroot\Images\tech-5.jpg" />
+    <None Include="wwwroot\Images\tech-6.jpg" />
+    <None Include="wwwroot\Images\tech-7.jpg" />
+    <None Include="wwwroot\Images\tech-8.jpg" />
+    <None Include="wwwroot\Images\tech-9.jpg" />
+  </ItemGroup>
+
 </Project>
