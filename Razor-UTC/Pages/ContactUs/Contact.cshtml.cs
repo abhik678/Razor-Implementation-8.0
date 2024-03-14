@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Razor_UTC.DBContext;
 using Razor_UTC.Models;
 
@@ -12,6 +14,7 @@ namespace Razor_UTC.Pages.ContactUs
         [BindProperty]
         public UserInformation Users { get; set; } = default!;
         public UserDbContext Context { get; set; } = context;
+        public string Username { get; private set; } = default!;
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -27,6 +30,14 @@ namespace Razor_UTC.Pages.ContactUs
 
                 return RedirectToPage("/Index");
             }
+            return Page();
+        }
+
+        public async Task<IActionResult> OnGetAsync()
+        {
+            Registration loggedInUser = (await Context.Registrations.FirstOrDefaultAsync() ?? throw new Exception()) ?? throw new Exception();
+            Username = loggedInUser.Username;
+
             return Page();
         }
     }
