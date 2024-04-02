@@ -18,14 +18,95 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin: 0;
+  padding: 0;
 }
 
 form > button {
     margin-top: -0.4rem !important;
 }
 .border-danger {
-    width: 100px;
-    height: 100px;
-    border: 1px solid;
+    width: 300px;
+    height: 190px;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: 100px !important;
+}
+
+/*==================================================================
+               Slider Section CSS Style 
+===================================================================*/
+.slide-radio-btn {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.slide-radio-btn > .radio-btn {
+    background: rgba(255, 255, 255, 0.8);
+    width: 30px;
+    height: 4px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.slide-radio-btn > .radio-btn.active {
+    background: #21d611;
+}
+
+.section-slide {
+    width: 100%;
+    height: 70vh;
+    padding: 0;
+}
+
+.img-container {
+    position: relative;
+    display: inline-block;
+}
+
+.slider-section {
+    height: 70vh;
+    width: auto;
+    overflow: hidden;
+}
+
+.slider-section > .section-slide > .img-box > .img-container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section {
+    height: 40vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    .section > div {
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        border: 2px solid;
+        padding: 20px;
+        vertical-align: top;
+        box-sizing: border-box;
+    }
+.section-1, .section-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 {
+    background-color: lightblue;
+}
+
+.section-2 {
+    background-color: lightgreen;
 }

@@ -1,0 +1,46 @@
+﻿
+@{
+    bool IsLoggedIn = false;
+}
+<section class="row justify-content-center align-items-center slider-section">
+    <div class="row section-slide">
+        <div class="d-flex justify-content-center align-items-center img-box">
+            <div class="img-container section-slide">
+                <img src="/Images/tech-1.jpg" alt="Not Found" class="img-fluid" style="height: 100%; width: 100%;" id="img1" />
+                <img src="/Images/tech-1.jpg" alt="Not Found" class="img-fluid" style="height: 100%; width: 100%; display: none;" id="img2" />
+                <img src="/Images/tech-8.jpg" alt="Not Found" class="img-fluid" style="height: 100%; width: 100%; display: none;" id="img3" />
+                <div class="col slide-radio-btn">
+                    <span class="radio-btn active" checked onclick="ChangeImage(1)" id="radio1"></span>
+                    <span class="radio-btn" onclick="ChangeImage(2)" id="radio2"></span>
+                    <span class="radio-btn" onclick="ChangeImage(3)" id="radio3"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@if(User == null || User.Identity == null|| User.Identity.IsAuthenticated)
+{
+    IsLoggedIn = true;
+    if(IsLoggedIn)
+    {
+        <section>
+            <div>Welcome to user</div>
+        </section>
+    }
+}
+
+
+
+
+
+<script>
+    const ChangeImage = (imageNumber) => {
+        // Hide all images
+        document.getElementById('img1').style.display = 'none';
+        document.getElementById('img2').style.display = 'none';
+        document.getElementById('img3').style.display = 'none';
+
+        // Show the selected image
+        document.getElementById('img' + imageNumber).style.display = 'block';
+    }
+</script>

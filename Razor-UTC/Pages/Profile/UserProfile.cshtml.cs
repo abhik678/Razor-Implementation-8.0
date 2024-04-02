@@ -12,16 +12,14 @@ namespace Razor_UTC.Pages.Profile
         public UserInformation userInformation = default!;
 
         public UserDbContext Context = context;
-        public async Task<IActionResult> OnGetAsync()
+        /*public async Task<IActionResult> OnGetAsync(string email)
         {
             if(Context != null)
             {
-                var response = await Context.UsersInformation.ToListAsync();
-                return new JsonResult(response);
-
+                var response = await Context.UsersInformation.FirstOrDefaultAsync(x => x.EmailAddress == email);
             }
-            return await Ok("200");
-        }
+            return RedirectToAction("DisplayUserProfile");
+        }*/
 
         private Task<IActionResult> Ok(string v)
         {
