@@ -5,7 +5,7 @@ namespace Razor_UTC.Models
     public class UserInformation
     {
         [Required]
-        [Display(Name = "UserId")]
+        [Display(Name = "Username")]
         public int Id { get; set; } = 0;
 
         [Required]

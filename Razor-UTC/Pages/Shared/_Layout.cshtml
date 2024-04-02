@@ -6,7 +6,6 @@
     <title>@ViewData["Title"] - Razor_UTC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Razor_UTC.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -25,16 +24,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-page="/Sliders/Slider">Images</a>
+                        </li>
                         @if(User == null || User.Identity == null || User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area ="" asp-page="ContactUs/Contact">Contact Us</a>
+                                <a class="nav-link text-white" asp-area ="" asp-page="/ContactUs/Contact">Contact Us</a>
                             </li>
                         }
                         @if (User == null || User.Identity == null || User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="Profile/UserProfile">Profile</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/Profile/UserProfile">Profile</a>
                             </li>
                         }
                     </ul>
@@ -55,8 +57,8 @@
         <partial name="_ExploreView" />
     </section>
 
-    <footer class="border-top footer text-muted">
-        <div class="container row">
+    <footer class="border-top footer text-muted bg-black">
+        <div class="container-fluid row">
             <div class="col mx-auto my-4">
                 <ul class="list-unstyled">
                     <li><a class="text-decoration-none">Home</a></li>
@@ -85,7 +87,7 @@
                 </ul>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid bg-primary">
             &copy; 2024 - Razor_UTC - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>

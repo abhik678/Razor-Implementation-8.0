@@ -7,7 +7,7 @@
     <div class="row m-4">
         <div class="col-4">
             <div class="btn-group-vertical" role="group">
-                <button type="button" class="btn btn-primary mb-1">Profile Information</button>
+                <button type="button" class="btn btn-primary mb-1" onclick="DisplayUserProfile()">Profile Information</button>
                 <button type="button" class="btn btn-primary mb-1">Edit Information</button>
                 <button type="button" class="btn btn-primary mb-1">Add Information</button>
                 <button type="button" class="btn btn-primary mb-1">Change Password</button>
@@ -15,9 +15,31 @@
             </div>
         </div>
         <div class="col-1 border-left"></div> <!-- Vertical line -->
-        <div class="col-7 m-2 border-danger">
-            <div class="border-danger"></div>
+        <div class="col-7 m-2 border-danger" id="userProfileSection">
+            <div class="border-danger">
+
+            </div>
             <!-- Your content for col-12 goes here -->
         </div>
     </div>
 </section>
+
+<script>
+    var DisplayUserProfile = () => 
+    {
+        var userprofile = {
+            name: "Abhitosh Kumar",
+            email: "kumarabhitosh678@gmail.com"
+        };
+
+        var userProfileSection = $("#userProfileSection");
+
+        // Create HTML content for user information
+        var userProfileHTML = "<h2>User Profile</h2>";
+        userProfileHTML += "<p>Name: " + userprofile.name + "</p>";
+        userProfileHTML += "<p>Email: " + userprofile.email + "</p>";
+
+        // Update the content of the userProfileSection
+        userProfileSection.html(userProfileHTML);
+    }
+</script>

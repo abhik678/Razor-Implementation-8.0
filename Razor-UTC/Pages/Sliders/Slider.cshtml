@@ -1,0 +1,39 @@
+﻿@page
+@model Razor_UTC.Helpers.Sliders.SliderModel
+@{
+}
+
+<section class="container row justify-content-center align-items-center slider-section">
+    <div class="row section-slide">
+        <div class="d-flex justify-content-center align-items-center img-box">
+            <div class="img-container">
+                <img src="/Images/tech-1.jpg" alt="Not Found" class="img-fluid" style="height: 100%; width: auto;" id="img1" />
+                <img src="/Images/tech-1.jpg" alt="Not Found" class="img-fluid" style="height: 100%; width: auto; display: none;" id="img2" />
+                <img src="/Images/tech-8.jpg" alt="Not Found" class="img-fluid" style="height: 100%; width: auto; display: none;" id="img3" />
+                <div class="col radio-btn">
+                    <input type="radio" name="imageRadio" id="radio1" checked onclick="changeImage(1)">
+                    <input type="radio" name="imageRadio" id="radio2" onclick="changeImage(2)">
+                    <input type="radio" name="imageRadio" id="radio3" onclick="changeImage(3)">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+    const changeImage = (imageNumber) => {
+        // Hide all images
+        document.getElementById('img1').style.display = 'none';
+        document.getElementById('img2').style.display = 'none';
+        document.getElementById('img3').style.display = 'none';
+
+        // Show the selected image
+        document.getElementById('img' + imageNumber).style.display = 'block';
+    }
+</script>
+
+
+
