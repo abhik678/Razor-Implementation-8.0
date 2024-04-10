@@ -5,6 +5,7 @@ namespace Razor_UTC.Models
     public class Registration
     {
         [Required]
+        [DataType(DataType.EmailAddress)]
         public string Username { get; set; } = default!;
 
         [Required]

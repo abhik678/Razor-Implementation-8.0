@@ -9,21 +9,18 @@ namespace Razor_UTC.Pages.Profile
 {
     public class UserProfileModel(UserDbContext context) : PageModel
     {
-        public UserInformation userInformation = default!;
+        [BindProperty]
+        public UserInformation? userInformation { get; set; } = default!;
 
         public UserDbContext Context = context;
-        /*public async Task<IActionResult> OnGetAsync(string email)
+        public async Task<IActionResult> OnGetAsync()
         {
-            if(Context != null)
+            userInformation = await Context.UsersInformation.FirstOrDefaultAsync().ConfigureAwait(false);
+            if (userInformation == null)
             {
-                var response = await Context.UsersInformation.FirstOrDefaultAsync(x => x.EmailAddress == email);
+                return NotFound();
             }
-            return RedirectToAction("DisplayUserProfile");
-        }*/
-
-        private Task<IActionResult> Ok(string v)
-        {
-            throw new NotImplementedException();
+            return Page();
         }
     }
 }

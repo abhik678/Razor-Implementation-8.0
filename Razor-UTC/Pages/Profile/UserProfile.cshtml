@@ -24,22 +24,27 @@
     </div>
 </section>
 
-<script>
+<script>   
     var DisplayUserProfile = () => 
     {
-        var userprofile = {
-            name: "Abhitosh Kumar",
-            email: "kumarabhitosh678@gmail.com"
+        var userprofile = 
+        {
+            id: '@Html.Raw(Json.Serialize(Model.userInformation.Id))',
+            name: '@Html.Raw(Json.Serialize(Model.userInformation.FName + " " + @Model.userInformation.LName))',
+            email: '@Html.Raw(Json.Serialize(Model.userInformation.EmailAddress))',
+            mobile: '@Html.Raw(Json.Serialize(Model.userInformation.PhoneNumber))'
         };
+        displayUserProfileOnUI(userprofile);
+    }
 
+    var displayUserProfileOnUI = (userprofile) => {
         var userProfileSection = $("#userProfileSection");
 
-        // Create HTML content for user information
         var userProfileHTML = "<h2>User Profile</h2>";
+        userProfileHTML += "<p>Id: " + userprofile.id + "</p>";
         userProfileHTML += "<p>Name: " + userprofile.name + "</p>";
         userProfileHTML += "<p>Email: " + userprofile.email + "</p>";
-
-        // Update the content of the userProfileSection
+        userProfileHTML += "<p>Mobile Number: " + userprofile.mobile + "</p>";
         userProfileSection.html(userProfileHTML);
-    }
+    };
 </script>
