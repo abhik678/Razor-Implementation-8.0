@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Razor_UTC.DBContext;
 using Razor_UTC.Models;
 
@@ -33,13 +31,10 @@ namespace Razor_UTC.Pages.ContactUs
             return Page();
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public IActionResult OnGet()
         {
-            Registration loggedInUser = (await Context.Registrations.FirstOrDefaultAsync() ?? throw new Exception()) ?? throw new Exception();
-            Username = loggedInUser.Username;
-
+            Username = HttpContext.User.Identity.Name;
             return Page();
         }
     }
-
 }

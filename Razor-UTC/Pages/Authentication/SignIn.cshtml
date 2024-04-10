@@ -3,15 +3,15 @@
 @{
 }
 
-<form method="post">
-    <div class="container border">
+<form method="post" class="login-form-container">
+    <div class="container border" style="max-width: 100%; padding: 20px; background-color: #f0f0f0;">
         <div class="form-group row m-2">
             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
             <div class="col-2">
                 <label asp-for="Credentials.Username"></label>
             </div>
             <div class="col-5">
-                <input type="text" asp-for="Credentials.Username" class="form-control"/>
+                <input type="text" asp-for="Credentials.Username" class="form-control" />
                 <span class="text-danger" asp-validation-for="Credentials.Username"></span>
             </div>
         </div>
@@ -20,7 +20,7 @@
                 <label asp-for="Credentials.Password"></label>
             </div>
             <div class="col-5">
-                <input type="password" asp-for="Credentials.Password" class="form-control"/>
+                <input type="password" asp-for="Credentials.Password" class="form-control" />
                 <span class="text-danger" asp-validation-for="Credentials.Password"></span>
             </div>
         </div>

@@ -71,9 +71,11 @@ form > button {
 }
 
 .slider-section {
-    height: 70vh;
+    z-index: 1;
     width: auto;
+    height: 70vh;
     overflow: hidden;
+    position: relative;
 }
 
 .slider-section > .section-slide > .img-box > .img-container > img {
@@ -109,4 +111,155 @@ form > button {
 
 .section-2 {
     background-color: lightgreen;
+}
+
+.login-form-container {
+    position: absolute;
+    top: 30px;
+    left: 75%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 40%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: aliceblue;
+}
+
+.registration-form-container {
+    position: absolute;
+    top: 30px;
+    left: 75%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 40%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: aliceblue;
+}
+/*---------------------------------------------------------
+    ABOUT SECTION CSS
+---------------------------------------------------------*/
+.about-section {
+    width: 100%;
+    height: 65vh;
+    background: #dfefff;
+}
+
+.about-div {
+    padding: 50px 25px;
+}
+
+.about-text {
+    width: 100%;
+    height: 45px;
+    position: relative;
+}
+
+    .about-text::after, .about-text::before {
+        content: '';
+        position: absolute;
+        margin: auto;
+        height: 2px;
+        background: #06233d;
+        width: 30%;
+        top: 2%;
+    }
+
+    .about-text::after {
+        left: 0;
+    }
+
+    .about-text::before {
+        right: 0px;
+    }
+
+.heading {
+    width: 40%;
+    height: 40px;
+    border-left: 2px solid #06233d;
+    border-right: 2px solid #06233d;
+    left: 30%;
+    right: 0;
+    text-align: center;
+    display: inline-block;
+    bottom: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+.about-Para {
+    text-align: justify;
+}
+
+/*--------------------------------------------------------------
+# Notify Section Desktop View CSS Code Start Here
+---------------------------------------------------------------*/
+
+.notify {
+    width: 100%;
+    height: 30vh;
+    background: #082744;
+}
+
+    .notify .blog {
+        height: 30vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.blog .title {
+    height: 120px;
+    display: flex;
+    outline: none;
+    overflow: hidden;
+    color: #f5f4fb;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+.plog {
+    display: flow-root;
+    padding-left: 10px;
+    width: max-content;
+    height: max-content;
+    bottom: 15px;
+    color: #f5f4fb;
+    line-height: 5px;
+    position: relative;
+}
+
+    .plog .arrow {
+        top: 30px;
+        position: relative;
+        display: flex;
+        margin: -10px;
+    }
+
+.blog .h2 .colh2 {
+    color: #f41111;
+    font-size: larger;
+    text-transform: capitalize;
+}
+
+.iblog {
+    top: 20px;
+    width: max-content;
+    display: block;
+    position: relative;
+    text-align: justify;
+    padding: 0px 20px;
+    line-height: 14px;
+}
+.fa-solid{
+    width: 70px;
 }
