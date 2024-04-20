@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Razor_UTC.DBContext;
-using Razor_UTC.Models;
+using User.IdentityServer.Shared.Models;
 
 namespace Razor_UTC.Pages.ContactUs
 {

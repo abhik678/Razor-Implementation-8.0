@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Razor_UTC.DBContext;
-using Razor_UTC.Models;
+using User.IdentityServer.Shared.Models;
 
 namespace Razor_UTC.Pages.Profile
 {
