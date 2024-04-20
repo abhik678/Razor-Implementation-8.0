@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Razor_UTC.Models;
+using User.IdentityServer.Shared.Models;
 
 namespace Razor_UTC.DBContext
 {

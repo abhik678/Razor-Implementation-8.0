@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Razor_UTC.DBContext;
 using Razor_UTC.Helpers.Constants;
-using Razor_UTC.Models;
+using User.IdentityServer.Shared.Models;
 using System.Security.Claims;
 
 namespace Razor_UTC.Authentication
