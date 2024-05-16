@@ -1,4 +1,5 @@
-﻿using Razor_UTC.DBContext;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Razor_UTC.DBContext;
 using Serilog;
 using Serilog.Core;
 using Constants = Razor_UTC.Helpers.Constants.Constants;
@@ -13,16 +14,17 @@ namespace Razor_UTC
         {
             // Add services to the container.
             services.AddRazorPages();
-            services.AddAuthentication(Constants.cookies).AddCookie(Constants.cookies, options =>
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
             {
                 options.Cookie.Name = Constants.cookies;
             });
 
             IServiceCollection res = services.AddAuthorization(options =>
             {
-                options.AddPolicy("Authorized", option => { option.RequireClaim("Admin", "User"); });
-                options.AddPolicy("UnAuthorized", option => { option.RequireClaim("Guest", "User"); });
+                options.AddPolicy("Authorized", options => { options.RequireClaim("Admin", "User"); });
+                options.AddPolicy("UnAuthorized", options => { options.RequireClaim("Guest", "User"); });
             });
+
             services.AddDbContext<UserDbContext>();
 
             string path = Configuration.GetSection("Logging:LogPath:logPath").Value!;
@@ -30,10 +32,17 @@ namespace Razor_UTC
             Logger logger = new LoggerConfiguration().MinimumLevel.Debug().MinimumLevel
                 .Override("microsoft", Serilog.Events.LogEventLevel.Warning)
                 .Enrich.FromLogContext().WriteTo.File(path!).CreateLogger();
-            
+            services.AddHttpClient("clientlogin", c =>
+            {
+                c.BaseAddress = Constants.GetUri;
+            });
+            services.AddCors(c =>
+            {
+                c.AddPolicy("usecors", build => { build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader(); });
+            });
         }
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment env) 
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             // Configure the HTTP request pipeline.
             if (!env.IsDevelopment())
@@ -46,10 +55,10 @@ namespace Razor_UTC
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseCors("usecors");
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseEndpoints(endpoints => 
+            app.UseEndpoints(endpoints =>
             { endpoints.MapRazorPages(); });
         }
     }
