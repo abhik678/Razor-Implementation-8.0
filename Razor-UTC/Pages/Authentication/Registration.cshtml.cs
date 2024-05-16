@@ -1,42 +1,34 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Razor_UTC.DBContext;
-using Razor_UTC.Helpers.Constants;
 using User.IdentityServer.Shared.Models;
-using System.Security.Claims;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace Razor_UTC.Pages.Authentication
 {
-    public class RegistrationModel(UserDbContext dbContext) : PageModel
+    public class RegistrationModel(UserDbContext dbContext, IHttpClientFactory HttpClientFactory) : PageModel
     {
         [BindProperty]
         public Registration Registration { get; set; } = default!;
         public UserDbContext DbContext { get; set; } = dbContext;
+        public HttpClient HttpClient { get; set; } = HttpClientFactory.CreateClient("clientlogin");
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if(!ModelState.IsValid) { return Page(); }
+            if (!ModelState.IsValid) { return Page(); }
 
+            HttpClient.DefaultRequestHeaders.Clear();
+            HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            if(Registration.Username != null && Registration.Password != null && Registration.ConfirmPassword != null)
+            StringContent stringContent = new(JsonConvert.SerializeObject(Registration), System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage httpResponse = await HttpClient.PostAsync($"api/Users/" + "RegisterUserAsync", stringContent).ConfigureAwait(false);
+
+            if (httpResponse.IsSuccessStatusCode)
             {
-                await DbContext.Registrations.AddAsync(Registration);
-                await DbContext.SaveChangesAsync();
-
-                var claims = new List<Claim>()
-                {
-                    new(ClaimTypes.Name, Registration.Username),
-                    new(ClaimTypes.Authentication, Registration.Password),
-                    new(ClaimTypes.Authentication, Registration.ConfirmPassword)
-                };
-                ClaimsIdentity identity = new(claims, Constants.cookies);
-                ClaimsPrincipal principal = new(identity);
-                await HttpContext.SignInAsync(Constants.cookies, principal);
-
                 return RedirectToPage("/Index");
             }
-
             return Page();
         }
     }

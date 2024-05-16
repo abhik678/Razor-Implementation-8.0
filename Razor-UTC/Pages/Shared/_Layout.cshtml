@@ -28,10 +28,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Sliders/Slider">Images</a>
                         </li>
-                        @if(User == null || User.Identity == null || User.Identity.IsAuthenticated)
+                        @if (User == null || User.Identity == null || User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area ="" asp-page="/ContactUs/Contact">Contact Us</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/ContactUs/Contact">Contact Us</a>
                             </li>
                         }
                         @if (User == null || User.Identity == null || User.Identity.IsAuthenticated)
@@ -43,7 +43,7 @@
                     </ul>
                 </div>
                 <div class="mr-2">
-                    <partial name= "_SignInStatusPartial" />
+                    <partial name="_SignInStatusPartial" />
                 </div>
             </div>
         </nav>
@@ -58,35 +58,35 @@
         <partial name="_ExploreView" />
     </section>
 
-    <section class="about-section">
-        <div class="about-div" id="about">
-            <div class="about-text">
-                <div class="heading">Adhyetri Solutions</div>
-            </div>
-            <p class="about-para">Adhyetri Solutions is a next generation output driven digital orgnisation, which offers <!--/*services/...*/--> to our younger talents across the journey. Exploiting its digital technology expertise, Adhyetri helps for those under-rated younger talent who are eger to drive innovation, scale and agility by accelerating their adoption of the new technologies, using industry best practices along with built in solution accelerators. With a deep digital engineering heritage, Adhyetri Solutions is always committed to build best practices with updated tech solutions and always belive into pre-built the solutions on various platforms like - java, dotnet, react and manymore. As well as we are also trying to develope data-oriented applications. We are also provide end-to-end managed sequrity services and web operations design.</p>
-            <p class="about-para">Innovation is just another word at Adhyetri, it’s a part of your carrier goals as well. We are focusing on build a culture, where resources can utilise their time and manage their carrier path accordingly. We want to offers a place where none of the resources will suffer from the miss managment of the system of the education. Adhyetri is working to always based on the real time industry analysis report management. employees can feel this change with throughout the journey. Our belife is a fundamental trust of inverting the organizational pyramid and engaging, enabling and empowering the front line talent. This is because we understand that this is the best placed to appreciate and understand the resource's concern and shape the roadmap to enhance the ‘value zone’ they have.</p>
-        </div>
-    </section>
+    @* <section class="about-section">
+    <div class="about-div" id="about">
+    <div class="about-text">
+    <div class="heading">Adhyetri Solutions</div>
+    </div>
+    <p class="about-para">Adhyetri Solutions is a next generation output driven digital orgnisation, which offers <!--/*services/...*/--> to our younger talents across the journey. Exploiting its digital technology expertise, Adhyetri helps for those under-rated younger talent who are eger to drive innovation, scale and agility by accelerating their adoption of the new technologies, using industry best practices along with built in solution accelerators. With a deep digital engineering heritage, Adhyetri Solutions is always committed to build best practices with updated tech solutions and always belive into pre-built the solutions on various platforms like - java, dotnet, react and manymore. As well as we are also trying to develope data-oriented applications. We are also provide end-to-end managed sequrity services and web operations design.</p>
+    <p class="about-para">Innovation is just another word at Adhyetri, it’s a part of your carrier goals as well. We are focusing on build a culture, where resources can utilise their time and manage their carrier path accordingly. We want to offers a place where none of the resources will suffer from the miss managment of the system of the education. Adhyetri is working to always based on the real time industry analysis report management. employees can feel this change with throughout the journey. Our belife is a fundamental trust of inverting the organizational pyramid and engaging, enabling and empowering the front line talent. This is because we understand that this is the best placed to appreciate and understand the resource's concern and shape the roadmap to enhance the ‘value zone’ they have.</p>
+    </div>
+    </section> *@
 
-    <section class="notify" id="slog">
-        <div class="blog">
-            <div class="title h2">
-                <h2 class="sline">Plan for <span class="colh2"> next </span> 5 <span> years.</span></h2>
-            </div>
-            <i class="fa-solid fa-bolt fa-rotate-by fa-5x" style="color: #e8ea57; --fa-rotate-angle: 170deg;"></i>
-            <div class="plog">
-                <p class="iblog">
-                    <span>Explore technology footprint to deliver transformation in Artificial Inteligence.</span>
-                </p>
-                <p class="iblog">
-                    <span>Next gen-Ids, Products and platforms that future-proof our customer's businesses.</span>
-                </p>
-                <p class="iblog">
-                    <span> Culture of innovation powered by our unique ideas developed by our younger talent.</span>
-                </p>
-            </div>
-        </div>
-    </section>
+    @* <section class="notify" id="slog">
+    <div class="blog">
+    <div class="title h2">
+    <h2 class="sline">Plan for <span class="colh2"> next </span> 5 <span> years.</span></h2>
+    </div>
+    <i class="fa-solid fa-bolt fa-rotate-by fa-5x" style="color: #e8ea57; --fa-rotate-angle: 170deg;"></i>
+    <div class="plog">
+    <p class="iblog">
+    <span>Explore technology footprint to deliver transformation in Artificial Inteligence.</span>
+    </p>
+    <p class="iblog">
+    <span>Next gen-Ids, Products and platforms that future-proof our customer's businesses.</span>
+    </p>
+    <p class="iblog">
+    <span> Culture of innovation powered by our unique ideas developed by our younger talent.</span>
+    </p>
+    </div>
+    </div>
+    </section> *@
 
     <footer class="border-top footer text-muted bg-black">
         <div class="container-fluid row">
