@@ -18,8 +18,8 @@ namespace Razor_UTC.DBContext
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserInformation>().HasKey(x => x.Id);
-            modelBuilder.Entity<Registration>().HasKey(x => x.Username);
+            modelBuilder.Entity<UserInformation>().HasKey(x => x.UserId);
+            modelBuilder.Entity<Registration>().HasKey(x => x.RegistrationId);
         }
 
         public static void SaveChanges(ChangeTracker changeTracker, UserDbContext Context)
