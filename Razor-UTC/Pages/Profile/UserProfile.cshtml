@@ -29,10 +29,10 @@
     {
         var userprofile = 
         {
-            id: '@Html.Raw(Json.Serialize(Model.userInformation.Id))',
+            id: '@Html.Raw(Json.Serialize(Model.userInformation.UserId))',
             name: '@Html.Raw(Json.Serialize(Model.userInformation.FName + " " + @Model.userInformation.LName))',
-            email: '@Html.Raw(Json.Serialize(Model.userInformation.EmailAddress))',
-            mobile: '@Html.Raw(Json.Serialize(Model.userInformation.PhoneNumber))'
+            email: '@Html.Raw(Json.Serialize(Model.userInformation.AadharNumber))',
+            mobile: '@Html.Raw(Json.Serialize(Model.userInformation.MobileNumber))'
         };
         displayUserProfileOnUI(userprofile);
     }
