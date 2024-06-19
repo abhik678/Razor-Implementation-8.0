@@ -17,11 +17,10 @@ namespace Razor_UTC.Pages.ContactUs
         {
             if (!ModelState.IsValid) { return Page(); }
 
-            if (Users.Id > 0 && !string.IsNullOrEmpty(Users.FName) && !string.IsNullOrEmpty(Users.LName)
-                && !string.IsNullOrEmpty(Users.EmailAddress) && !string.IsNullOrEmpty(Users.Password)
-                && !string.IsNullOrEmpty(Users.ConfirmPassword) && Users.PhoneNumber > 0)
+            if (Users.UserId > 0 && !string.IsNullOrEmpty(Users.FName) && !string.IsNullOrEmpty(Users.LName)
+                && Users.AadharNumber > 0 && Users.MobileNumber > 0)
             {
-                Users.Id = 0;
+                Users.UserId = 0;
                 Context.UsersInformation.Add(Users);
                 await Context.SaveChangesAsync();
 

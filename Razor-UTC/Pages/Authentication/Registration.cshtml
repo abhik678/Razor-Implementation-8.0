@@ -3,8 +3,12 @@
 @{
 }
 
-<form method="post" class="registration-form-container">
+<form method="post" class="registration-form-container" id="registrationIdform">
     <div class="container" style="max-width: 100%; padding: 20px; background-color: #f0f0f0;">
+        <div class="from-group">
+            <label asp-for="Registration.EmailAddress"></label>
+            <input type="email" asp-for="Registration.EmailAddress" class="form-control" />
+        </div>
         <div class="from-group">
             <label asp-for="Registration.Username"></label>
             <input type="text" asp-for="Registration.Username" class="form-control" />
@@ -18,7 +22,24 @@
             <input type="password" asp-for="Registration.ConfirmPassword" class="form-control" />
         </div>
         <div class="form-group mt-3">
-            <input type="submit" class="btn btn-primary" value="Submit" />
+            <button type="submit" class="btn btn-primary" onclick="showRegisterUserInfo()">NEXT</button>
         </div>
     </div>
 </form>
+
+<div id="registeruserinfo" class="registeruserinfo" style="display:none;">
+    @await Html.PartialAsync("_RegisterUserInfo")
+</div>
+
+<script>
+
+    document.getElementById('registrationIdform').addEventListener('submit', function (event) {
+        event.preventDefault();
+        showRegisterUserInfo();
+    })
+
+    function showRegisterUserInfo() {
+        document.getElementById('registrationIdform').style.display = 'none';
+        document.getElementById('registeruserinfo').style.display = 'block';
+    }
+</script>

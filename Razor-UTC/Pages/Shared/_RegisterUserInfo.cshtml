@@ -1,0 +1,30 @@
+﻿@model Razor_UTC.Pages.Authentication.RegistrationModel
+
+<form method="post" class="registration-form-container">
+    <div class="container" style="max-width: 100%; padding: 20px; background-color: #f0f0f0;">
+        <div class="from-group">
+            <label asp-for="Registration.UserInformation.FName"></label>
+            <input type="text" asp-for="Registration.UserInformation.FName" class="form-control" />
+        </div>
+        <div class="from-group">
+            <label asp-for="Registration.UserInformation.LName"></label>
+            <input type="text" asp-for="Registration.UserInformation.LName" class="form-control" />
+        </div>
+        <div class="from-group">
+            <label asp-for="Registration.UserInformation.MobileNumber"></label>
+            <input type="text" asp-for="Registration.UserInformation.MobileNumber" class="form-control" />
+        </div>
+        <div class="from-group">
+            <label asp-for="Registration.UserInformation.AadharNumber"></label>
+            <input type="text" asp-for="Registration.UserInformation.AadharNumber" class="form-control" />
+        </div>
+        <div class="from-group">
+            <label asp-for="Registration.UserInformation.DateOfBirth"></label>
+            <input type="date" asp-for="Registration.UserInformation.DateOfBirth" class="form-control" />
+        </div>
+        <div class="form-group mt-3 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary regi">NEXT</button>
+            <button type="submit" class="btn btn-primary regi">BACK</button>
+        </div>
+    </div>
+</form>

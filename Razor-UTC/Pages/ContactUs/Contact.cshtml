@@ -24,14 +24,14 @@
         <div class="col-md-4 mb-3">
             <div class="form-group">
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                <label asp-for="Users.EmailAddress"></label>
-                <input type="email" asp-for = "Users.EmailAddress" value="@Model.Username" class="form-control" />
-                <span class="text-danger" asp-validation-for="Users.EmailAddress"></span>
+                <label asp-for="Users.AadharNumber"></label>
+                <input type="email" asp-for = "Users.AadharNumber" value="@Model.Username" class="form-control" />
+                <span class="text-danger" asp-validation-for="Users.AadharNumber"></span>
             </div>
         </div>
     </div>
     <div class="form-row row">
-        <div class="col-md-4 mb-3">
+@*         <div class="col-md-4 mb-3">
             <div class="form-group">
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <label asp-for="Users.Password"></label>
@@ -46,13 +46,13 @@
                 <input type="password" asp-for="Users.ConfirmPassword" placeholder="Enter Your Confirm Password" class="form-control" />
                 <span class="text-danger" asp-validation-for="Users.ConfirmPassword"></span>
             </div>
-        </div>
+        </div> *@
         <div class="col-md-4 mb-3">
             <div class="form-group">
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                <label asp-for="Users.PhoneNumber"></label>
-                <input type="number" asp-for="Users.PhoneNumber" placeholder="Enter Your 10 digit Mobile Number" class="form-control" />
-                <span class="text-danger" asp-validation-for="Users.PhoneNumber"></span>
+                <label asp-for="Users.MobileNumber"></label>
+                <input type="number" asp-for="Users.MobileNumber" placeholder="Enter Your 10 digit Mobile Number" class="form-control" />
+                <span class="text-danger" asp-validation-for="Users.MobileNumber"></span>
             </div>
         </div>
     </div>
@@ -60,9 +60,9 @@
         <div class="col-md-4 mb-3">
             <div class="form-group">
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                <label asp-for="Users.Id"></label>
-                <input type="number" asp-for="Users.Id" placeholder="Enter User Id" class="form-control" />
-                <span class="text-danger" asp-validation-for="Users.Id"></span>
+                <label asp-for="Users.UserId"></label>
+                <input type="number" asp-for="Users.UserId" placeholder="Enter User Id" class="form-control" />
+                <span class="text-danger" asp-validation-for="Users.UserId"></span>
             </div>
         </div>
     </div>
